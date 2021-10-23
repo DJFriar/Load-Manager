@@ -40,4 +40,25 @@ module.exports = function (app) {
       isAdmin: req.user.isAdmin
     });
   });
+
+  app.post("/api/v1/dispatch", (req, res) => {
+    db.Dispatch.create({
+      TruckID: req.body.TruckID,
+      Pickup: req.body.Pickup,
+      Destination: req.body.Destination,
+      LoadType: req.body.LoadType,
+      LoadCount: req.body.LoadCount,
+      DispatchNumber: req.body.DispatchNumber,
+      PaymentPerTon: req.body.PaymentPerTon,
+      Notes: req.body.Notes
+    })
+      .then(() => {
+        console.log("Dispatch Created Successfully");
+        res.redirect("/dispatcher");
+      })
+      .catch(err => {
+        console.log("Dispatch API Error Encountered");
+        res.status(401).json(err);
+      });
+  })
 }

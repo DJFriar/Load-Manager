@@ -43,6 +43,7 @@ h3 {
 }
 
 h4 {
+  color: #07FC07;
   font-weight: 600;
   font-size: 2em;
   margin: 0px;
@@ -50,18 +51,21 @@ h4 {
 
 @media (max-width: 959px) {
   h4 {
+    color: #07FC07;
     font-size: 1.5em;
     margin: 0px;
   }
 }
 
 h5 {
+  color: #07FC07;
   font-weight: 600;
   font-size: 1.5em;
   margin: 12px 0px;
 }
 
 h6 {
+  color: #07FC07;
   font-weight: 600;
   font-size: 1.25em;
   margin: 12px 0px;
@@ -154,4 +158,8 @@ a.hidden-link:visited {
 .uk-button-primary {
   background-color: #07FC07;
   color:#282828;
+}
+
+.uk-form-label {
+  color: #fff;
 }

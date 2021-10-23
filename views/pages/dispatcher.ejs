@@ -4,10 +4,59 @@
 
 <body>
   <%- include('../partials/topnav'); %>
-  <h3>Dispatcher</h3>
+  <h3>Dispatcher Console</h3>
   <main>
+    <div class="dispatchBtnDiv" style="margin: 8px 0;">
+      <button type="button" class="uk-button uk-button-primary addDispatchBtn">New Dispatch</button>
+    </div>
+    <!-- #region New Dispatch -->
+    <div class="hide-me" id="newDispatchInfo">
+      <h5>ADD NEW DISPATCH</h5>
+      <form class="uk-grid-small uk-form-stacked" action="/api/v1/dispatch" method="POST" uk-grid>
+        <div class="uk-width-1-5@s">
+          <label class="uk-form-label" for="TruckID">Truck #*</label>
+          <input class="uk-input uk-width-1-1" required type="text" name="TruckID" id="TruckID" placeholder="1">
+        </div>
+        <div class="uk-width-4-5@s">
+          <label class="uk-form-label" for="DispatchNumber">Dispatch #*</label>
+          <input class="uk-input uk-width-1-1" required type="text" name="DispatchNumber" id="DispatchNumber" placeholder="99999">
+        </div>
+        <div class="uk-width-1-1@s">
+          <label class="uk-form-label" for="Pickup">Pickup*</label>
+          <input class="uk-input uk-width-1-1" type="text" name="Pickup" id="Pickup" placeholder="Pickup">
+        </div>
+        <div class="uk-width-1-1@s">
+          <label class="uk-form-label" for="Destination">Destination*</label>
+          <input class="uk-input uk-width-1-1" type="text" name="Destination" id="Destination" placeholder="Destination">
+        </div>
+        <div class="uk-width-1-3@s">
+          <label class="uk-form-label" for="LoadType">Load Type*</label>
+          <input class="uk-input uk-width-1-1" type="text" name="LoadType" id="LoadType" placeholder="Load Type">
+        </div>
+        <div class="uk-width-1-3@s">
+          <label class="uk-form-label" for="LoadCount">Load Count*</label>
+          <input class="uk-input uk-width-1-1" required type="text" name="LoadCount" id="LoadCount" placeholder="3">
+        </div>
+        <div class="uk-width-1-3@s">
+          <label class="uk-form-label" for="PaymentPerTon">Price Per Ton*</label>
+          <input class="uk-input uk-width-1-1" type="text" name="PaymentPerTon" id="PaymentPerTon" placeholder="$0.00">
+        </div>
+        <div class="uk-width-1-1@s">
+          <label class="uk-form-label" for="Notes">Load Notes</label>
+          <textarea class="uk-textarea" rows="5" name="Notes" id="Notes" placeholder=""></textarea>
+        </div>
+        
+        <div style="margin-top: 16px;">
+          <label class="uk-form-label">&nbsp;</label>
+          <button class="uk-button uk-button-secondary uk-button-small addDispatchBtn">Cancel</button>
+          <button class="uk-button uk-button-primary uk-button-small" id="saveDispatch">Save</button>
+        </div>
+      </form>
+    </div>
+    <!-- #endregion -->
+
     <!-- #region Dispatcher Table -->
-    <table class="uk-table uk-table-striped uk-table-small" id="dispatchTable">
+    <table class="uk-table uk-table-striped uk-table-small lm-mt-18" id="dispatchTable">
       <thead>
         <tr>
           <th>Truck #</th>
