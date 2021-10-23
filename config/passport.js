@@ -5,7 +5,10 @@ const db = require("../models");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
-  new LocalStrategy(
+  new LocalStrategy({
+    usernameField: 'Username',
+    passwordField: 'Password'
+  },
     (username, password, done) => {
       // When a user tries to sign in this code runs
       db.User.findOne({

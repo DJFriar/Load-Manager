@@ -22,12 +22,14 @@ main {
 }
 
 h2 {
+  color:#07FC07;
   font-weight: 600;
   font-size: 3em;
   margin: 0px;
 }
 
 h3 {
+  color: #07FC07;
   font-weight: 600;
   font-size: 2.5em;
   margin: 0px;
@@ -36,13 +38,11 @@ h3 {
 @media (max-width: 959px) {
   h3 {
     font-size: 1.75em;
-    /* color: #fff; */
     margin: 0px;
   }
 }
 
 h4 {
-  /* font-family: 'Stardos Stencil', sans-serif; */
   font-weight: 600;
   font-size: 2em;
   margin: 0px;
@@ -76,6 +76,10 @@ form {
   margin-bottom: 12px;
 }
 
+.lm-login-text {
+  text-align: center;
+}
+
 a.hidden-link:link,
 a.hidden-link:visited {
   color: #666;
@@ -87,10 +91,6 @@ a.hidden-link:visited {
 
 .uk-dropdown {
   min-width: 230px !important;
-}
-
-.submissionNotesSection {
-  margin-bottom: 18px;
 }
 
 .lm-mb-8 {
@@ -149,4 +149,9 @@ a.hidden-link:visited {
 
 .no-link-underline .uk-button-link {
   text-decoration: none !important;
+}
+
+.uk-button-primary {
+  background-color: #07FC07;
+  color:#282828;
 }

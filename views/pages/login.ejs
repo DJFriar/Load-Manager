@@ -8,20 +8,18 @@
     <div class="uk-container-xsmall uk-margin-auto">
       <div class="">
         <h2 class="uk-text-center">Login</h2>
-        <form action="/login" method="post">
-          <div>
-              <label>Username:</label>
-              <input type="text" name="username"/>
+        <form class="login">
+          <div class="uk-margin">
+            <label class="uk-form-label" for="Username">Username</label>
+            <input class="uk-input" id="Username" type="text" placeholder="Username">
           </div>
-          <div>
-              <label>Password:</label>
-              <input type="password" name="password"/>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="UserPassword">Password</label>
+            <input class="uk-input" id="UserPassword" type="password" placeholder="Password">
           </div>
-          <div>
-              <input type="submit" value="Log In"/>
-          </div>
-      </form>
-        <p>Or sign up <a href="/signup">here</a></p>
+          <button class="uk-button uk-button-primary uk-button-small">Login</button>
+        </form>
+        <p>Or enroll <a href="/enroll">here</a></p>
       </div>
     </div>
   </main>

@@ -4,9 +4,17 @@
 
 <body>
   <main>
-    <p>Main index page content goes here.</p>
+    <h3>Load Manager</h3>
+    <div class="lm-login-text">
+      <p>This is a secured system. Authentication is required.</p>
+      <div>
+        <a href="/login"><button class="uk-button uk-button-primary">Login</button></a>
+        <a href="/enroll"><button class="uk-button uk-button-primary">Enroll</button></a>
+      </div>
+    </div>
   </main>
   <footer>
     <%- include('../partials/footer'); %>
   </footer>
+  <script type="text/javascript" src="/js/index.js"></script>
 </body>
