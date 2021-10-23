@@ -1,0 +1,32 @@
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+  <%- include('../partials/topnav'); %>
+  <main>
+    <div class="uk-container-xsmall uk-margin-auto">
+      <div class="">
+        <h2 class="uk-text-center">Login</h2>
+        <form action="/login" method="post">
+          <div>
+              <label>Username:</label>
+              <input type="text" name="username"/>
+          </div>
+          <div>
+              <label>Password:</label>
+              <input type="password" name="password"/>
+          </div>
+          <div>
+              <input type="submit" value="Log In"/>
+          </div>
+      </form>
+        <p>Or sign up <a href="/signup">here</a></p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+  <script type="text/javascript" src="js/login.js"></script>
+</body>
