@@ -3,12 +3,69 @@
 </head>
 
 <body>
+  <%- include('../partials/topnav'); %>
+  <h3>Dispatcher</h3>
   <main>
-    <h3>Load Manager Dispatcher</h3>
-    <p>Put stuff here</p>
+    <!-- #region Dispatcher Table -->
+    <table class="uk-table uk-table-striped uk-table-small" id="dispatchTable">
+      <thead>
+        <tr>
+          <th>Truck #</th>
+          <th>Pickup</th>
+          <th>Destination</th>
+          <th>Load Type</th>
+          <th>Load Count</th>
+          <th>Dispatch #</th>
+          <th>Payment/Ton</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Dispatches.forEach(function(dispatch) { %>
+          <tr>
+            <td>
+              <%= dispatch.TruckID %>
+            </td>
+            <td>
+              <%= dispatch.Pickup %>
+            </td>
+            <td>
+              <%= dispatch.Destination %>
+            </td>
+            <td>
+              <%= dispatch.LoadType %>
+            </td>
+            <td>
+              <%= dispatch.LoadCount %>
+            </td>
+            <td>
+              <%= dispatch.DispatchNumber %>
+            </td>
+            <td>
+              <%= dispatch.PaymentPerTon %>
+            </td>
+            <td>
+              <%= dispatch.Notes %>
+            </td>
+            <td>
+              <div class="uk-inline">
+                <button class="uk-button uk-button-default" type="button">Actions</button>
+                <div class="dispatchActionDropdown" uk-dropdown="pos: bottom-justify; boundary: .boundary-align; boundary-align: true; mode: click">
+                  <button class="uk-button uk-button-link toh-mb-8" type="button"><span class="editDispatchBtn" data-uid="<%- dispatch.id %>"><i class="fal fa-edit fa-fw"></i> Edit Dispatch</span></button>
+                  <span class="cancelDispatchBtn lm-mb-8 uk-button uk-button-link" data-uid="<%- dispatch.id %>"><i class="fal fa-edit fa-fw"></i> Cancel Dispatch</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <!-- #endregion -->
   </main>
   <footer>
     <%- include('../partials/footer'); %>
   </footer>
-  <script type="text/javascript" src="/js/index.js"></script>
+
+  <script type="text/javascript" src="/js/dispatcher.js"></script>
 </body>

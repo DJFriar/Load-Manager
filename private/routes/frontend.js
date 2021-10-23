@@ -29,6 +29,9 @@ module.exports = function (app) {
   });
 
   app.get("/dispatcher", isAuthenticated, async (req,res) => {
-    res.render("pages/dispatcher", { });
+    var Dispatches = await q.queryAllDispatches();
+    res.render("pages/dispatcher", { 
+      Dispatches
+    });
   });
 }
