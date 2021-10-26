@@ -1,6 +1,18 @@
 const db = require("../../models");
 const passport = require("../../config/passport");
+const { text } = require("express");
 // const isAuthenticated = require("../../config/isAuthenticated");
+const sendNotification = require("../../config/twilioNotifications");
+const twilioClient = require('../../private/twilioClient');
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const sendingNumber = process.env.TWILIO_SENDING_NUMBER;
+const messagingServiceSid = process.env.TWILIO_MESSAGING_SERVICE_SID;
+const client = require('twilio')(accountSid, authToken);
+
+var sendTo = '';
+var smsMessage = '';
 
 module.exports = function (app) { 
   // Route for logging user out
@@ -60,5 +72,35 @@ module.exports = function (app) {
         console.log("Dispatch API Error Encountered");
         res.status(401).json(err);
       });
+  })
+
+  app.post("/api/v1/sendSms/:id", (req, res) => {
+    const id = req.params.id;
+    console.log("==== sendSms Body Content ====");
+    console.log(req.body);
+    db.Dispatch.findByPk(id)
+    .then((data) => {
+      console.log(data);
+      sendTo = req.body.to;
+      smsMessage = "Pickup: " + data.LoadType + " | Destination =" + data.Destination + " | Load Type = " + data.LoadType;
+      sendSmsDispatch();
+    })
+  });
+}
+
+function sendSmsDispatch() {
+  console.log("==== sendSmsDispatch =====");
+  console.log(sendTo);
+  console.log(smsMessage);
+  client.messages
+  .create({
+    to: sendTo,
+    body: smsMessage,
+    messagingServiceSid: messagingServiceSid
+  }).then(function(data) {
+    console.log('SMS Sent Successfully');
+  }).catch(function(err) {
+    console.error('Could not deliver SMS.');
+    console.error(err);
   })
 }

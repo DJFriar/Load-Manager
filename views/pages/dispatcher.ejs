@@ -100,9 +100,10 @@
             <td>
               <div class="uk-inline">
                 <button class="uk-button uk-button-default" type="button">Actions</button>
-                <div class="dispatchActionDropdown" uk-dropdown="pos: bottom-justify; boundary: .boundary-align; boundary-align: true; mode: click">
-                  <button class="uk-button uk-button-link toh-mb-8" type="button"><span class="editDispatchBtn" data-uid="<%- dispatch.id %>"><i class="fal fa-edit fa-fw"></i> Edit Dispatch</span></button>
-                  <span class="cancelDispatchBtn lm-mb-8 uk-button uk-button-link" data-uid="<%- dispatch.id %>"><i class="fal fa-edit fa-fw"></i> Cancel Dispatch</span>
+                <div class="dispatchActionDropdown" uk-dropdown="pos: bottom-left; boundary: .uk-inline; mode: click">
+                  <button class="uk-button uk-button-link lm-mb-8" type="button"><span class="sendSmsBtn" data-uid="<%- dispatch.id %>"><i class="fal fa-paper-plane fa-fw"></i> Send SMS to Truck</span></button>
+                  <button class="uk-button uk-button-link lm-mb-8" type="button"><span class="editDispatchBtn" data-uid="<%- dispatch.id %>"><i class="fal fa-edit fa-fw"></i> Edit Dispatch</span></button>
+                  <span class="cancelDispatchBtn uk-button uk-button-link" data-uid="<%- dispatch.id %>"><i class="fal fa-edit fa-fw"></i> Cancel Dispatch</span>
                 </div>
               </div>
             </td>
